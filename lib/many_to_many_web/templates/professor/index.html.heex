@@ -1,0 +1,30 @@
+<h1>Listing Professors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Research area</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for professor <- @professors do %>
+    <tr>
+      <td><%= professor.last_name %></td>
+      <td><%= professor.first_name %></td>
+      <td><%= professor.research_area %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.professor_path(@conn, :show, professor) %></span>
+        <span><%= link "Edit", to: Routes.professor_path(@conn, :edit, professor) %></span>
+        <span><%= link "Delete", to: Routes.professor_path(@conn, :delete, professor), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Professor", to: Routes.professor_path(@conn, :new) %></span>

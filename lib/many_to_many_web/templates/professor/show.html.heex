@@ -1,0 +1,23 @@
+<h1>Show Professor</h1>
+
+<ul>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @professor.last_name %>
+  </li>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @professor.first_name %>
+  </li>
+
+  <li>
+    <strong>Research area:</strong>
+    <%= @professor.research_area %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.professor_path(@conn, :edit, @professor) %></span> |
+<span><%= link "Back", to: Routes.professor_path(@conn, :index) %></span>
